@@ -1,7 +1,7 @@
-const TaskFactory = (name, description, dueDate, priority) => {
+const TaskFactory = (title, description, dueDate, priority) => {
 
     return {
-      name,
+      title,
       description,
       dueDate,
       priority
