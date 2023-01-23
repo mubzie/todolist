@@ -7,7 +7,6 @@ const addTaskToDom = document.getElementById('addTaskForm');
 
 addProjectToDom.addEventListener('submit', (e) => {
     e.preventDefault()
-    console.log(e.target)
 
     const name = document.getElementById('title-p').value
 
@@ -15,20 +14,24 @@ addProjectToDom.addEventListener('submit', (e) => {
 
     PM.addProject(project)
 
-    console.log(PM.projects[0].getProjectName())
+    PM.projects.forEach((item, i) => {
+        item.id = i + 0
+    });
+
 })
 
 
-addTaskToDom.addEventListener('submit', (e) => {
-    e.preventDefault()
-    console.log(e.target)
+// addTaskToDom.addEventListener('submit', (e) => {
+//     e.preventDefault()
 
-    const title = document.getElementById('title-t').value;
-    const description = document.getElementById('description').value;
-    const dueDate = document.getElementById('date').value;
-    const priority = document.getElementById('priority').value;
+//     const title = document.getElementById('title-t').value;
+//     const description = document.getElementById('description').value;
+//     const dueDate = document.getElementById('date').value;
+//     const priority = document.getElementById('priority').value;
 
-    const task = TaskFactory(title, description, dueDate, priority)
+//     const task = TaskFactory(title, description, dueDate, priority)
 
-    console.log(task)
-})
+
+
+//     console.log(task)
+// })

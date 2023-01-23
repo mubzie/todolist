@@ -21,6 +21,7 @@ const ProjectFactory = (name) => {
     }
    
     return {
+      tasks,
       getProjectName,
       addTask,
       deleteTask,

@@ -1,34 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="main.js" defer></script>
     <title>my todo list</title>
-</head>
-<body>
-    <header class="header">my todo list</header>
+  </head>
+  <body>
+   <header class="header">my todo list</header>
+    
     <main class="main">
-        <div class="sidebar">
-            <form id="addProjectForm">
 
-                <div class="form-title">Add project
-                <span class="close-form-btn">&times;</span>
-                </div>
-            
-                <div class="form-row">
-                  <label for="title-p">title</label>
-                  <input type="text" name="" id="title-p" required />
-                </div>
-            
-                <div class="form-button">
-                  <button type="submit" class="submit">Add project</button>
-                </div>
-            </form>    
-        </div>
+      <div class="sidebar">
 
-        <div class="main-display">
+          <div class="add-project"> Add project
+            <span class="add-project-btn">&plus;</span>
+          </div>
+
+          <form id="addProjectForm">
+              <div class="form-title">Add project
+              <span class="close-form-btn">&times;</span>
+              </div>
+          
+              <div class="form-row">
+                <label for="title-p">title</label>
+                <input type="text" name="" id="title-p" required />
+              </div>
+          
+              <div class="form-button">
+                <button type="submit" class="submit">Add project</button>
+              </div>
+        </form>    
+      </div>
+
+      <div class="main-display">
             <form id="addTaskForm">
                 <div class="form-title">Add Task
                 <span class="close-form-btn">&times;</span>
@@ -64,5 +70,5 @@
             </form>  
         </div>
     </main>
-</body>
+  </body>
 </html>
