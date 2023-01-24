@@ -1,6 +1,9 @@
 import { PM } from "./modules/PM"
 import { ProjectFactory } from "./modules/ProjectFactory"
 import { TaskFactory } from "./modules/TaskFactory"
+import { displayProject } from "./modules/addProjectToDom"
+import { v4 as uuidv4 } from 'uuid';
+import "./styles/todo.css"
 
 const addProjectToDom = document.getElementById('addProjectForm');
 const addTaskToDom = document.getElementById('addTaskForm');
@@ -14,9 +17,11 @@ addProjectToDom.addEventListener('submit', (e) => {
 
     PM.addProject(project)
 
-    PM.projects.forEach((item, i) => {
-        item.id = i + 0
+    PM.projects.forEach((item) => {
+        item.id = uuidv4()
     });
+
+    displayProject(project)
 
 })
 

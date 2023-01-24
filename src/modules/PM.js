@@ -1,8 +1,9 @@
 import { ProjectFactory } from "./ProjectFactory";
+import { v4 as uuidv4 } from 'uuid';
 
 const PM = {
 
-    name: 'Project Managerr',
+    name: 'Project Manager',
     projects: [],
 
     addProject: function (project) {
