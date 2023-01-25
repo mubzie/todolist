@@ -6,6 +6,8 @@ const ProjectFactory = (name) => {
     const getProjectName = () => name
   
     const tasks = [];
+
+    const id = uuidv4()
   
     const addTask = (todo) => {
       tasks.push(todo)

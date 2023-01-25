@@ -9,12 +9,15 @@ const displayProject = (project) => {
     container.classList.add('project-container')
     container.textContent = `${project.getProjectName()}`
 
-    const mainContainer = document.createElement('div');
-    mainContainer.classList.add('project-header')
-    mainContainer.textContent = `${project.getProjectName()}`
+    // project.projects.forEach(task => {
+    //     console.log(task)
+    //     const mainContainer = document.createElement('div');
+    //     mainContainer.classList.add('project-header')
+    //     mainContainer.textContent = `${project.getProjectName()}`
+    // });
 
     sideBar.appendChild(container)
-    mainDisplay.appendChild(mainContainer)
+    // mainDisplay.appendChild(mainContainer)
 }
 
 export { displayProject }

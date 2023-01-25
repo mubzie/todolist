@@ -17,9 +17,9 @@ addProjectToDom.addEventListener('submit', (e) => {
 
     PM.addProject(project)
 
-    PM.projects.forEach((item) => {
-        item.id = uuidv4()
-    });
+    // PM.projects.forEach((item) => {
+    //     item.id = uuidv4()
+    // });
 
     displayProject(project)
 
