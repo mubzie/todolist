@@ -3,7 +3,7 @@ const PM = {
     name: 'Project Manager',
     projects: [],
 
-    //add project to project array inside of project manager object which manage projects
+    //add project to project array inside of project manager object (the PM object manages project factory)
     addProject: function (project) {
         this.projects.push(project)
         console.log(this.projects)

@@ -2,28 +2,29 @@ import { PM } from "./modules/PM"
 import { ProjectFactory } from "./modules/ProjectFactory"
 import { TaskFactory } from "./modules/TaskFactory"
 import { displayProject, displayTask } from "./modules/UI"
-import { v4 as uuidv4 } from 'uuid';
 import "./styles/todo.css"
 
+//target input form 
 const addProjectToDom = document.getElementById('addProjectForm');
 const addTaskToDom = document.getElementById('addTaskForm');
 
+//created a default project and added it to PM
 const inbox = ProjectFactory('Inbox');
 PM.addProject(inbox);
 
-addProjectToDom.addEventListener('submit', (e) => {
+const createProject = (e) => {
     e.preventDefault()
-
     
-    const name = document.getElementById('title-p').value
+    const title = document.getElementById('title-p').value;
     
-    const project = ProjectFactory(name)
+    const project = ProjectFactory(title);
     
     PM.addProject(project)
     
     displayProject(project)
-    
-})
+}
+
+addProjectToDom.addEventListener('submit', createProject)
 
 
 addTaskToDom.addEventListener('submit', (e) => {
