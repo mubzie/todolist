@@ -1,23 +1,23 @@
-import { ProjectFactory } from "./ProjectFactory";
-import { v4 as uuidv4 } from 'uuid';
-
 const PM = {
 
     name: 'Project Manager',
     projects: [],
 
+    //add project to project array inside of project manager object which manage projects
     addProject: function (project) {
         this.projects.push(project)
         console.log(this.projects)
     },
 
+    //delete project by locating it id and deleting it
     deleteProject: function (index) {
         this.projects.splice(index, 1)
         console.log(this.projects)
     },
 
-    updateProject: function (index, project) {
-        return Object.assign(this.projects[index], project)
+    //update project title with Object.assign
+    updateProject: function (index, newTitle) {
+        return Object.assign(this.projects[index], newTitle)
     }
 
 }
