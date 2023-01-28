@@ -18,6 +18,7 @@ const createProject = (e) => {
     const title = document.getElementById('title-p').value;
     
     const project = ProjectFactory(title);
+    console.log(project.id)
     
     PM.addProject(project)
     

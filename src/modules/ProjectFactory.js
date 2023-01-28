@@ -7,6 +7,8 @@ const ProjectFactory = (name) => {
   //task array that include all tasks inside of a project
   const tasks = [];
 
+  const id = uuidv4()
+
   //add task to array by using Array.push method
   const addTask = (todo) => {
     tasks.push(todo)
@@ -29,7 +31,8 @@ const ProjectFactory = (name) => {
     getProjectName,
     addTask,
     deleteTask,
-    updateTask
+    updateTask,
+    id
   }
   
 }
