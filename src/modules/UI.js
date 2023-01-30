@@ -4,11 +4,19 @@ const displayProject = (project) => {
     
     const projectContainer = document.createElement('div');
     projectContainer.classList.add('project-container');
-    projectContainer.classList.add('add-project');
+    projectContainer.classList.add('add-project-btn');
+    projectContainer.classList.add('p-button');
     projectContainer.textContent = `${project.getProjectName()}`
     
-
     sideBar.appendChild(projectContainer)
+    
+    const buttons = document.querySelectorAll('.p-button');
+    
+    buttons.forEach( button => {
+        button.addEventListener('click', () => {
+            console.log(project.id)
+        })
+    })
 }
 
 const displayTask = (tasks) => {

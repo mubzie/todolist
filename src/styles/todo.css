@@ -33,7 +33,7 @@ div.sidebar {
     gap: 8px;
 }
 
-div.add-project {
+div.add-project-btn {
     display: flex;
     justify-content: space-between;
     background-color: #fff;
