@@ -13,7 +13,9 @@ const displayProject = (project) => {
     const buttons = document.querySelectorAll('.p-button');
     
     buttons.forEach( button => {
-        button.addEventListener('click', () => {
+        button.addEventListener('click', (e) => {
+            e.stopImmediatePropagation()
+            
             console.log(project.id)
         })
     })

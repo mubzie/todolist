@@ -8,9 +8,16 @@ import "./styles/todo.css"
 const addProjectToDom = document.getElementById('addProjectForm');
 const addTaskToDom = document.getElementById('addTaskForm');
 
+//target default static project button
+const defaultProjectBtn = document.querySelector('.default-btn');
+
 //created a default project and added it to PM
 const inbox = ProjectFactory('Inbox');
 PM.addProject(inbox);
+
+defaultProjectBtn.addEventListener('click', () => {
+    console.log(inbox.id)
+})
 
 const createProject = (e) => {
     e.preventDefault()
