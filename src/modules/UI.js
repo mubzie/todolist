@@ -1,12 +1,19 @@
-const displayProject = (project) => {
+import { PM } from "./PM";
+
+const displayProject = (project, i) => {
     
     const sideBar = document.querySelector('.sidebar');
     
     const projectContainer = document.createElement('div');
-    projectContainer.classList.add('project-container');
-    projectContainer.classList.add('add-project-btn');
-    projectContainer.classList.add('p-button');
+    projectContainer.classList.add('project-container', 'add-project-btn', 'p-button');
     projectContainer.textContent = `${project.getProjectName()}`
+
+    const delIcon = document.createElement('div');
+    delIcon.textContent = 'x'
+    delIcon.classList.add('del-btn')
+    delIcon.setAttribute('data-id', `${i}`)
+
+    projectContainer.append(delIcon)
     
     sideBar.appendChild(projectContainer)
     
@@ -16,9 +23,33 @@ const displayProject = (project) => {
         button.addEventListener('click', (e) => {
             e.stopImmediatePropagation()
             
+            document.getElementById('pid').value = project.id;
+
             console.log(project.id)
         })
     })
+
+
+    const delBtns = document.querySelectorAll('.del-btn');
+
+    delBtns.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.stopImmediatePropagation()
+
+            const i = btn.dataset.id
+
+            function index(data) {
+
+                return data.id === i
+            }
+            
+            PM.deleteProject(index)
+
+            btn.parentElement.remove();
+
+        })
+    })
+
 }
 
 const displayTask = (tasks) => {

@@ -11,7 +11,9 @@ const PM = {
 
     //delete project by locating it id and deleting it
     deleteProject: function (index) {
-        this.projects.splice(index, 1)
+        const find = this.projects.findIndex(index)
+        console.log(find)
+        this.projects.splice(find, 1)
         console.log(this.projects)
     },
 
