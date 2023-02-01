@@ -37,13 +37,8 @@ const displayProject = (project, i) => {
             e.stopImmediatePropagation()
 
             const i = btn.dataset.id
-
-            function index(data) {
-
-                return data.id === i
-            }
             
-            PM.deleteProject(index)
+            PM.deleteProject(i)
 
             btn.parentElement.remove();
 

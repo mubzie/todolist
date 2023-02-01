@@ -11,7 +11,6 @@ const addTaskToDom = document.getElementById('addTaskForm');
 //target default static project button
 const defaultProjectBtn = document.querySelector('.default-btn');
 
-
 //created a default project and added it to PM
 const inbox = ProjectFactory('Inbox');
 PM.addProject(inbox);
@@ -21,7 +20,6 @@ document.getElementById('pid').value = inbox.id
 defaultProjectBtn.addEventListener('click', () => {
     console.log(inbox.id)
 })
-
 
 const createProject = (e) => {
     e.preventDefault()
@@ -39,7 +37,7 @@ const createProject = (e) => {
 
 }
 
-addProjectToDom.addEventListener('submit', createProject)
+addProjectToDom.addEventListener('submit', createProject);
 
 const createTask = (project) => {
 
