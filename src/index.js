@@ -4,73 +4,84 @@ import { TaskFactory } from "./modules/TaskFactory"
 import { displayProject, displayTask } from "./modules/UI"
 import "./styles/todo.css"
 
-//target input form 
+
+
+//target project and task input form 
 const addProjectToDom = document.getElementById('addProjectForm');
 const addTaskToDom = document.getElementById('addTaskForm');
 
-//target default static project button
+//target default project button
 const defaultProjectBtn = document.querySelector('.default-btn');
 
-//created a default project and added it to PM
+//create a default project and add it to PM projects collections
 const inbox = ProjectFactory('Inbox');
 PM.addProject(inbox);
 
+//set the default project id
 document.getElementById('pid').value = inbox.id
 
+//set default project as current project when in focus
 defaultProjectBtn.addEventListener('click', () => {
-    console.log(inbox.id)
+    document.getElementById('pid').value = inbox.id
 })
 
+
+//create new project
 const createProject = (e) => {
     e.preventDefault()
     
+    //target input form for project title
     const title = document.getElementById('title-p').value;
-    const pId = document.getElementById('pid').value;
-    // console.log(pId)
     
+    //initialise projectFactory with form input value
     const project = ProjectFactory(title);
     console.log(project.id)
     
+    //add project to PM project collections (arrays)
     PM.addProject(project)
     
+    //display project in the UI
     displayProject(project, project.id)
-
+    
 }
-
 addProjectToDom.addEventListener('submit', createProject);
 
-const createTask = (project) => {
 
+//create task and add it to specific project
+const createTask = (e) => {
     e.preventDefault()
-            
+    
+    //target input form for task information
     const title = document.getElementById('title-t').value;
     const description = document.getElementById('description').value;
     const dueDate = document.getElementById('date').value;
     const priority = document.getElementById('priority').value;
     
-    const task = TaskFactory(title, description, dueDate, priority)
+    //initialise taskFactory with form input value
+    const task = TaskFactory(title, description, dueDate, priority);
 
-    project.addTask(task)
+    //get unique project id from the form and save it into a variable (projectId)
+    const projectId = document.getElementById('pid').value;
+
+    //find specific project from within the PM projects collections using the 
+    //project id 
+    const currentProject = PM.projects.find((data) => data.id === projectId);
+    console.log(currentProject.id)
     
-    displayTask(project.tasks)
+    //check if project was found and add task to the project
+    if(currentProject !== undefined) {
 
-    console.log(task)
+        console.log('yes')
+        if(currentProject.id === projectId) {
+            console.log('another yes')
+            currentProject.addTask(task)
+        }
 
+    } else {
+        console.log('no project found')
+    }
+    
+    //display task in the UI
+    displayTask(currentProject.tasks)
 }
-
-addTaskToDom.addEventListener('submit', (e) => {
-    e.preventDefault()
-    
-    const title = document.getElementById('title-t').value;
-    const description = document.getElementById('description').value;
-    const dueDate = document.getElementById('date').value;
-    const priority = document.getElementById('priority').value;
-    
-    const task = TaskFactory(title, description, dueDate, priority)
-
-    inbox.addTask(task)
-    
-    displayTask(inbox.tasks)
-
-    console.log(task)
-})
+addTaskToDom.addEventListener('submit', createTask)
