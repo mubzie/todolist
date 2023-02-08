@@ -84,13 +84,25 @@ const displayTask = (tasks) => {
 
     const container = document.createElement('todo-container');
 
-    const taskTitle = document.createElement('div');
-    taskTitle.textContent = `${tasks.taskTitle}`
+    tasks.forEach( task => {
 
-    container.append(taskTitle)
+        const taskTitle = document.createElement('div');
+        taskTitle.textContent = `${task.title}`
+
+        const taskDescription = document.createElement('div');
+        taskDescription.textContent = `${task.description}`;
+
+        const taskDueDate = document.createElement('div');
+        taskDueDate.textContent = `${task.dueDate}`;
+
+        const taskPriority = document.createElement('div');
+        taskPriority.textContent = `${task.priority}`
+
+        container.append(taskTitle, taskDescription, taskDueDate, taskPriority)
+
+    })
 
     todoDisplay.appendChild(container)
-
 
 }
 
