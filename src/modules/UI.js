@@ -62,23 +62,35 @@ const displayProject = (project, i) => {
 
 const displayTask = (tasks) => {
 
-    let table = '<table border="1">';
+    // let table = '<table border="1">';
     
-    tasks.forEach((task, i) => {
-        table += `<tr>`;
-        table += `<td>${task.title}</td>`;
-        table += `<td>${task.description}</td>`;
-        table += `<td>${task.dueDate}</td>`;
-        table += `<td>${task.priority}</td>`;
+    // tasks.forEach((task, i) => {
+    //     table += `<tr>`;
+    //     table += `<td>${task.title}</td>`;
+    //     table += `<td>${task.description}</td>`;
+    //     table += `<td>${task.dueDate}</td>`;
+    //     table += `<td>${task.priority}</td>`;
 
-        table += `<td style="background-color: #f6c5c5">
-        <button class="icon-btn delBtn" data-index=${i} alt="delete btn">delete task</button>
-        </td>`;
-    });
+    //     table += `<td style="background-color: #f6c5c5">
+    //     <button class="icon-btn delBtn" data-index=${i} alt="delete btn">delete task</button>
+    //     </td>`;
+    // });
 
-    table += '</table>';
+    // table += '</table>';
 
-    document.querySelector('.todo-display').innerHTML = table;
+    // document.querySelector('.todo-display').innerHTML = table;
+
+    const todoDisplay = document.querySelector('.todo-display');
+
+    const container = document.createElement('todo-container');
+
+    const taskTitle = document.createElement('div');
+    taskTitle.textContent = `${tasks.taskTitle}`
+
+    container.append(taskTitle)
+
+    todoDisplay.appendChild(container)
+
 
 }
 
