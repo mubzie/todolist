@@ -63,27 +63,12 @@ const displayProject = (project, i) => {
 const displayTask = (tasks) => {
 
     const todoDisplay = document.querySelector('.todo-display');
-    // const todoDisplay = document.createElement('div');
 
     const container = document.createElement('div');
-    
-    // tasks.forEach( task => {
-        
-    //     const taskTitle = document.createElement('div');
-    //     taskTitle.textContent = `${task.title}`
+    container.classList.add('card-container');
 
-    //     const taskDescription = document.createElement('div');
-    //     taskDescription.textContent = `${task.description}`;
-
-    //     const taskDueDate = document.createElement('div');
-    //     taskDueDate.textContent = `${task.dueDate}`;
-
-    //     const taskPriority = document.createElement('div');
-    //     taskPriority.textContent = `${task.priority}`
-
-    //     container.append(taskTitle, taskDescription, taskDueDate, taskPriority)
-        
-    // })
+    const subContainer = document.createElement('div');
+    subContainer.classList.add('sub-container');
     
     const taskTitle = document.createElement('div');
     taskTitle.textContent = `${tasks.title}`
@@ -93,15 +78,17 @@ const displayTask = (tasks) => {
 
     const taskDueDate = document.createElement('div');
     taskDueDate.textContent = `${tasks.dueDate}`;
+    taskDueDate.classList.add('task-duedate');
 
     const taskPriority = document.createElement('div');
     taskPriority.textContent = `${tasks.priority}`
+    taskPriority.classList.add('task-priority');
 
-    container.append(taskTitle, taskDescription, taskDueDate, taskPriority)
+    subContainer.append(taskDueDate, taskPriority)
+
+    container.append(taskTitle, taskDescription, subContainer)
 
     todoDisplay.appendChild(container)
-
-    // document.querySelector('.todo-display').innerHTML = container
 
 }
 

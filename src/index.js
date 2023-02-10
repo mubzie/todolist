@@ -3,6 +3,7 @@ import { ProjectFactory } from "./modules/ProjectFactory"
 import { TaskFactory } from "./modules/TaskFactory"
 import { displayProject, displayTask } from "./modules/UI"
 import "./styles/todo.css"
+import { format } from "date-fns"
 
 
 
@@ -54,7 +55,7 @@ const createTask = (e) => {
     //target input form for task information
     const title = document.getElementById('title-t').value;
     const description = document.getElementById('description').value;
-    const dueDate = document.getElementById('date').value;
+    const dueDate = format(new Date(document.getElementById('date').value), 'dd MMM');
     const priority = document.getElementById('priority').value;
     
     //initialise taskFactory with form input value
@@ -68,13 +69,16 @@ const createTask = (e) => {
     const currentProject = PM.projects.find((data) => data.id === projectId);
     console.log(currentProject.id)
     
-    //check if project was found and add task to the project
+    //check if project was found
     if(currentProject !== undefined) {
 
         console.log('yes')
         if(currentProject.id === projectId) {
             console.log('another yes')
+            //if found and its id is equal to projectId, add task to the project
             currentProject.addTask(task)
+            
+            //display task in the UI
             displayTask(task)
         }
 
@@ -82,6 +86,5 @@ const createTask = (e) => {
         console.log('no project found')
     }
     
-    //display task in the UI
 }
 addTaskToDom.addEventListener('submit', createTask)
