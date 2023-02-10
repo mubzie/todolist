@@ -66,26 +66,41 @@ const displayTask = (tasks) => {
     // const todoDisplay = document.createElement('div');
 
     const container = document.createElement('div');
+    
+    // tasks.forEach( task => {
+        
+    //     const taskTitle = document.createElement('div');
+    //     taskTitle.textContent = `${task.title}`
 
-    tasks.forEach( task => {
+    //     const taskDescription = document.createElement('div');
+    //     taskDescription.textContent = `${task.description}`;
 
-        const taskTitle = document.createElement('div');
-        taskTitle.textContent = `${task.title}`
+    //     const taskDueDate = document.createElement('div');
+    //     taskDueDate.textContent = `${task.dueDate}`;
 
-        const taskDescription = document.createElement('div');
-        taskDescription.textContent = `${task.description}`;
+    //     const taskPriority = document.createElement('div');
+    //     taskPriority.textContent = `${task.priority}`
 
-        const taskDueDate = document.createElement('div');
-        taskDueDate.textContent = `${task.dueDate}`;
+    //     container.append(taskTitle, taskDescription, taskDueDate, taskPriority)
+        
+    // })
+    
+    const taskTitle = document.createElement('div');
+    taskTitle.textContent = `${tasks.title}`
 
-        const taskPriority = document.createElement('div');
-        taskPriority.textContent = `${task.priority}`
+    const taskDescription = document.createElement('div');
+    taskDescription.textContent = `${tasks.description}`;
 
-        container.append(taskTitle, taskDescription, taskDueDate, taskPriority)
+    const taskDueDate = document.createElement('div');
+    taskDueDate.textContent = `${tasks.dueDate}`;
 
-    })
+    const taskPriority = document.createElement('div');
+    taskPriority.textContent = `${tasks.priority}`
+
+    container.append(taskTitle, taskDescription, taskDueDate, taskPriority)
 
     todoDisplay.appendChild(container)
+
     // document.querySelector('.todo-display').innerHTML = container
 
 }

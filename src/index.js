@@ -75,6 +75,7 @@ const createTask = (e) => {
         if(currentProject.id === projectId) {
             console.log('another yes')
             currentProject.addTask(task)
+            displayTask(task)
         }
 
     } else {
@@ -82,6 +83,5 @@ const createTask = (e) => {
     }
     
     //display task in the UI
-    displayTask(currentProject.tasks)
 }
 addTaskToDom.addEventListener('submit', createTask)
