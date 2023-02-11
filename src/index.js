@@ -3,6 +3,7 @@ import { ProjectFactory } from "./modules/ProjectFactory"
 import { TaskFactory } from "./modules/TaskFactory"
 import { displayProject } from "./modules/projectUI"
 import { displayTask } from "./modules/taskUI"
+import  { deleteTask } from "./modules/deleteTask"
 import "./styles/todo.css"
 import { format } from "date-fns"
 
@@ -69,6 +70,7 @@ const createTask = (e) => {
     //project id 
     const currentProject = PM.projects.find((data) => data.id === projectId);
     console.log(currentProject.id)
+
     
     //check if project was found
     if(currentProject !== undefined) {
@@ -80,13 +82,16 @@ const createTask = (e) => {
             currentProject.addTask(task)
             
             //display task in the UI
+            displayTask(task, task.id)
+
         }
         
     } else {
         console.log('no project found')
     }
-
-    displayTask(task, task.id)
+    
+    //delete task inside of the current project
+    deleteTask(currentProject)
     
 }
 addTaskToDom.addEventListener('submit', createTask)

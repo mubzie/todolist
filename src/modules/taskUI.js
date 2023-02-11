@@ -1,6 +1,4 @@
-import { ProjectFactory } from "./ProjectFactory";
-
-const displayTask = (tasks, i) => {
+const displayTask = (task, i) => {
 
     const todoDisplay = document.querySelector('.todo-display');
 
@@ -12,18 +10,18 @@ const displayTask = (tasks, i) => {
     
     const taskTitle = document.createElement('div');
     taskTitle.classList.add('task-title');
-    taskTitle.textContent = `${tasks.title}`
+    taskTitle.textContent = `${task.title}`
 
     const taskDescription = document.createElement('div');
     taskDescription.classList.add('task-description');
-    taskDescription.textContent = `${tasks.description}`;
+    taskDescription.textContent = `${task.description}`;
 
     const taskDueDate = document.createElement('div');
-    taskDueDate.textContent = `${tasks.dueDate}`;
+    taskDueDate.textContent = `${task.dueDate}`;
     taskDueDate.classList.add('task-duedate');
 
     const taskPriority = document.createElement('div');
-    taskPriority.textContent = `${tasks.priority}`
+    taskPriority.textContent = `${task.priority}`
     taskPriority.classList.add('task-priority');
 
     subContainer.append(taskDueDate, taskPriority)
@@ -44,25 +42,6 @@ const displayTask = (tasks, i) => {
     container.append(taskTitle, taskDescription, subContainer, lineBreak, optionContainer)
 
     todoDisplay.appendChild(container)
-
-    const TaskdelBtns = document.querySelectorAll('.task-del-btn');
-
-    TaskdelBtns.forEach(btn => {
-        btn.addEventListener('click', (e) => {
-            e.stopImmediatePropagation()
-
-            //locating the index
-            const index = btn.dataset.id
-            
-            //delete the project from projects array
-            console.log(index)
-            ProjectFactory.deleteTask(index)
-
-            //remove the project from the DOM
-            // btn.parentElement.parentElement.remove();
-
-        })
-    })
 
 }
 
