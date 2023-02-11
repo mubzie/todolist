@@ -79,7 +79,7 @@ const createTask = (e) => {
             currentProject.addTask(task)
             
             //display task in the UI
-            displayTask(task)
+            displayTask(task, task.id)
         }
 
     } else {

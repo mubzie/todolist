@@ -1,4 +1,5 @@
 import { PM } from "./PM";
+import { ProjectFactory } from "./ProjectFactory";
 
 const displayProject = (project, i) => {
     
@@ -60,7 +61,7 @@ const displayProject = (project, i) => {
 
 }
 
-const displayTask = (tasks) => {
+const displayTask = (tasks, i) => {
 
     const todoDisplay = document.querySelector('.todo-display');
 
@@ -71,9 +72,11 @@ const displayTask = (tasks) => {
     subContainer.classList.add('sub-container');
     
     const taskTitle = document.createElement('div');
+    taskTitle.classList.add('task-title');
     taskTitle.textContent = `${tasks.title}`
 
     const taskDescription = document.createElement('div');
+    taskDescription.classList.add('task-description');
     taskDescription.textContent = `${tasks.description}`;
 
     const taskDueDate = document.createElement('div');
@@ -86,9 +89,41 @@ const displayTask = (tasks) => {
 
     subContainer.append(taskDueDate, taskPriority)
 
-    container.append(taskTitle, taskDescription, subContainer)
+    const lineBreak = document.createElement('hr');
+    lineBreak.classList.add('divider')
+
+    const optionContainer = document.createElement('div');
+    optionContainer.classList.add('option-container');
+
+    const delBtn = document.createElement('button');
+    delBtn.textContent = 'Delete task'
+    delBtn.classList.add('task-del-btn')
+    delBtn.setAttribute('data-id', `${i}`)
+
+    optionContainer.appendChild(delBtn)
+
+    container.append(taskTitle, taskDescription, subContainer, lineBreak, optionContainer)
 
     todoDisplay.appendChild(container)
+
+    const delBtns = document.querySelectorAll('.task-del-btn');
+
+    delBtns.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.stopImmediatePropagation()
+
+            //locating the index
+            const index = btn.dataset.id
+            
+            //delete the project from projects array
+            console.log(index)
+            ProjectFactory.deleteTask(index)
+
+            //remove the project from the DOM
+            // btn.parentElement.parentElement.remove();
+
+        })
+    })
 
 }
 
