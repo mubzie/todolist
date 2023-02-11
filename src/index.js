@@ -1,7 +1,8 @@
 import { PM } from "./modules/PM"
 import { ProjectFactory } from "./modules/ProjectFactory"
 import { TaskFactory } from "./modules/TaskFactory"
-import { displayProject, displayTask } from "./modules/UI"
+import { displayProject } from "./modules/projectUI"
+import { displayTask } from "./modules/taskUI"
 import "./styles/todo.css"
 import { format } from "date-fns"
 
@@ -79,12 +80,13 @@ const createTask = (e) => {
             currentProject.addTask(task)
             
             //display task in the UI
-            displayTask(task, task.id)
         }
-
+        
     } else {
         console.log('no project found')
     }
+
+    displayTask(task, task.id)
     
 }
 addTaskToDom.addEventListener('submit', createTask)
