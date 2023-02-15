@@ -3,10 +3,10 @@ import { ProjectFactory } from "./modules/ProjectFactory"
 import { TaskFactory } from "./modules/TaskFactory"
 import { displayProject } from "./modules/projectUI"
 import { displayTask } from "./modules/taskUI"
-import  { deleteTask } from "./modules/deleteTask"
+import { deleteTask } from "./modules/deleteTask"
+import { deleteProject } from "./modules/deleteProject"
 import "./styles/todo.css"
 import { format } from "date-fns"
-
 
 
 //target project and task input form 
@@ -45,6 +45,8 @@ const createProject = (e) => {
     
     //display project in the UI
     displayProject(project, project.id)
+
+    deleteProject(PM)
     
 }
 addProjectToDom.addEventListener('submit', createProject);
@@ -70,7 +72,6 @@ const createTask = (e) => {
     //project id 
     const currentProject = PM.projects.find((data) => data.id === projectId);
     console.log(currentProject.id)
-
     
     //check if project was found
     if(currentProject !== undefined) {

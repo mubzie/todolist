@@ -38,25 +38,25 @@ const displayProject = (project, i) => {
     })
     
     
-    //delete each project with their respective id
-    const delBtns = document.querySelectorAll('.del-btn');
+    // //delete each project with their respective id
+    // const delBtns = document.querySelectorAll('.del-btn');
 
-    //iterate between projects, locate the index and delete the project
-    delBtns.forEach(btn => {
-        btn.addEventListener('click', (e) => {
-            e.stopImmediatePropagation()
+    // //iterate between projects, locate the index and delete the project
+    // delBtns.forEach(btn => {
+    //     btn.addEventListener('click', (e) => {
+    //         e.stopImmediatePropagation()
 
-            //locating the index
-            const index = btn.dataset.id
+    //         //locating the index
+    //         const index = btn.dataset.id
             
-            //delete the project from projects array
-            PM.deleteProject(index)
+    //         //delete the project from projects array
+    //         PM.deleteProject(index)
 
-            //remove the project from the DOM
-            btn.parentElement.remove();
+    //         //remove the project from the DOM
+    //         btn.parentElement.remove();
 
-        })
-    })
+    //     })
+    // })
 
 }
 
