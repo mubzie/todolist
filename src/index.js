@@ -5,8 +5,8 @@ import { displayProject } from "./modules/projectUI"
 import { displayTask } from "./modules/taskUI"
 import { deleteTask } from "./modules/deleteTask"
 import { deleteProject } from "./modules/deleteProject"
-import "./styles/todo.css"
 import { format } from "date-fns"
+import "./styles/todo.css"
 
 
 //target project and task input form 
@@ -43,9 +43,10 @@ const createProject = (e) => {
     //add project to PM project collections (arrays)
     PM.addProject(project)
     
-    //display project in the UI
+    //display project on the UI
     displayProject(project, project.id)
 
+    //delete project with corresponding id
     deleteProject(PM)
     
 }
@@ -82,7 +83,7 @@ const createTask = (e) => {
             //if found and its id is equal to projectId, add task to the project
             currentProject.addTask(task)
             
-            //display task in the UI
+            //display task on the UI
             displayTask(task, task.id)
 
         }

@@ -1,6 +1,3 @@
-import { PM } from "./PM";  
-
-
 const deleteProject = (project) => {
 
     //delete each project with their respective id
@@ -16,7 +13,7 @@ const deleteProject = (project) => {
         console.log(index)
         
         //delete the project from projects array
-        PM.deleteProject(index)
+        project.deleteProject(index)
     
         //remove the project from the DOM
         btn.parentElement.remove();

@@ -1,5 +1,3 @@
-import { PM } from "./PM";
-
 const displayProject = (project, i) => {
     
     //target side navigation
@@ -13,8 +11,8 @@ const displayProject = (project, i) => {
     //create a delete icon on each project container and set a data attribute to locate its id
     const delIcon = document.createElement('div');
     delIcon.textContent = 'x'
-    delIcon.classList.add('del-btn')
-    delIcon.setAttribute('data-id', `${i}`)
+    delIcon.classList.add('del-btn');
+    delIcon.setAttribute('data-id', `${i}`);
 
     //append delete icon to parent container
     projectContainer.append(delIcon)
@@ -36,27 +34,6 @@ const displayProject = (project, i) => {
             console.log(project.id)
         })
     })
-    
-    
-    // //delete each project with their respective id
-    // const delBtns = document.querySelectorAll('.del-btn');
-
-    // //iterate between projects, locate the index and delete the project
-    // delBtns.forEach(btn => {
-    //     btn.addEventListener('click', (e) => {
-    //         e.stopImmediatePropagation()
-
-    //         //locating the index
-    //         const index = btn.dataset.id
-            
-    //         //delete the project from projects array
-    //         PM.deleteProject(index)
-
-    //         //remove the project from the DOM
-    //         btn.parentElement.remove();
-
-    //     })
-    // })
 
 }
 
